@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=cuda:11.3.0-base-ubuntu20.04
+ARG BASE_IMAGE=cuda:11.7.0-base-ubuntu20.04
 
 FROM ${BASE_IMAGE}
 
@@ -18,12 +18,9 @@ RUN apt-get -y update && \
     rm -rf /var/lib/apt/lists/*
 
 
-# Clone NeRF-SLAM
-# WORKDIR /home/${USER_NAME}
-# RUN git clone https://github.com/sarveshmayil/NeRF-SLAM-deeprob.git --recurse-submodules
+# Copy NeRF-SLAM
 WORKDIR /home/${USER_NAME}/NeRF-SLAM
-# RUN git submodule update --init --recursive
-
+COPY . .
 # Install required packages
 RUN pip install -r requirements.txt
 RUN pip install -r ./thirdparty/gtsam/python/requirements.txt
@@ -40,12 +37,9 @@ RUN rm -rf /var/lib/apt/lists/*
 
 # Install Instant NGP
 RUN cmake ./thirdparty/instant-ngp -B build_ngp 
-RUN cmake --build build_ngp --config RelWithDebInfo -j 1
+RUN cmake --build build_ngp --config RelWithDebInfo -j 4
 
 # Install GTSAM
-RUN git clone https://github.com/borglab/gtsam.git
-RUN rm -r thirdparty/gtsam
-RUN mv -v gtsam thirdparty/
 RUN cmake ./thirdparty/gtsam -DGTSAM_BUILD_PYTHON=1 -B build_gtsam 
 RUN cmake --build build_gtsam --config RelWithDebInfo -j 4
 RUN cd build_gtsam && make python-install

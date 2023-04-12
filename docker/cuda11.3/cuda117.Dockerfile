@@ -16,6 +16,7 @@ RUN apt-get -y update \
       vim \
       wget \
       curl \
+      unzip \
       software-properties-common \
       doxygen \
       git \

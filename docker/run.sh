@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-IMAGE_TAG=nerf-slam:cuda11.3-ubuntu20.04
+IMAGE_TAG=nerf-slam:cuda11.7-ubuntu20.04
 CONTAINER_NAME=nerf-slam_docker
 
 capabilities_str=\""capabilities=compute,utility,graphics,display\""
