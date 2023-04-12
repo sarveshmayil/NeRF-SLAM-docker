@@ -19,10 +19,10 @@ RUN apt-get -y update && \
 
 
 # Clone NeRF-SLAM
-WORKDIR /home/${USER_NAME}
-RUN git clone https://github.com/sarveshmayil/NeRF-SLAM-deeprob.git --recurse-submodules
+# WORKDIR /home/${USER_NAME}
+# RUN git clone https://github.com/sarveshmayil/NeRF-SLAM-deeprob.git --recurse-submodules
 WORKDIR /home/${USER_NAME}/NeRF-SLAM
-RUN git submodule update --init --recursive
+# RUN git submodule update --init --recursive
 
 # Install required packages
 RUN pip install -r requirements.txt
@@ -61,4 +61,3 @@ RUN echo "${USER_NAME} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Switch to user to run user-space commands
 USER ${USER_NAME}
-WORKDIR /home/${USER_NAME}
