@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ "$(docker inspect --type=image 11.3.0-base-ubuntu20.04:latest 2> /dev/null)" == "" ]]; then
+if [[ "$(docker inspect --type=image cuda:11.7.0-base-ubuntu20.04 2> /dev/null)" == "" ]]; then
   echo "You need to build the base cuda image first"
   exit 0
 fi
