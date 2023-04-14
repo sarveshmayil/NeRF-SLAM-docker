@@ -3,7 +3,7 @@ scipy
 tqdm
 matplotlib
 
-open3d
+open3d==0.17.0
 opencv-python
 
 torch-scatter
