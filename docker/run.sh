@@ -4,6 +4,8 @@ CONTAINER_NAME=nerf-slam_docker
 
 capabilities_str=\""capabilities=compute,utility,graphics,display\""
 
+xhost local:root
+
 DOCKER_OPTIONS=""
 DOCKER_OPTIONS+="-it "
 DOCKER_OPTIONS+="-e DISPLAY=$DISPLAY "
