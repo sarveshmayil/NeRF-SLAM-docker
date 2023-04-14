@@ -62,7 +62,7 @@ class NerfFusion:
         if not os.path.isabs(network):
             network = os.path.join(configs_dir, network)
 
-        self.ngp = ngp.Testbed(mode) # NGP can only use device = 0
+        self.ngp = ngp.Testbed(mode, 0) # NGP can only use device = 0
 
         n_images = args.buffer
         aabb_scale = 4
