@@ -17,6 +17,7 @@ RUN apt-get -y update && \
     apt-get -y install cmake && \
     rm -rf /var/lib/apt/lists/*
 
+RUN pip3 install --upgrade pip
 
 # Copy NeRF-SLAM
 WORKDIR /home/${USER_NAME}/NeRF-SLAM
@@ -36,6 +37,7 @@ RUN apt-get -y install libboost-all-dev
 RUN rm -rf /var/lib/apt/lists/*
 
 # Install Instant NGP
+RUN cd ./thirdparty/instant-ngp && git checkout feature/nerf_slam
 RUN cmake ./thirdparty/instant-ngp -B build_ngp 
 RUN cmake --build build_ngp --config RelWithDebInfo -j 4
 
