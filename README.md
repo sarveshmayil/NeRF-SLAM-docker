@@ -125,7 +125,7 @@ This will just download one of the replica scenes:
 ## Run
 
 ```
-python ./examples/slam_demo.py --dataset_dir=./datasets/Replica/office0 --dataset_name=nerf --buffer=100 --slam --parallel_run --img_stride=2 --fusion='nerf' --multi_gpu --gui
+python ./examples/slam_demo.py --dataset_dir=./datasets/Replica/office0 --dataset_name=nerf --buffer=80 --slam --parallel_run --img_stride=10 --fusion='nerf' --gui
 ```
 
 This repo also implements [Sigma-Fusion](https://arxiv.org/abs/2210.01276): just change `--fusion='sigma'` to run that.
