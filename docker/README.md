@@ -8,10 +8,10 @@ Before building the specific images for NeRF-SLAM, you will need to pull the off
 docker pull nvidia/cuda:11.7.0-cudnn8-devel-ubuntu20.04
 ```
 
-Then, go into `cuda11.3` directory and build the base cuda-ubuntu 20.04 image. This can be done by running
+Then, go into `cuda` directory and build the base cuda-ubuntu 20.04 image. This can be done by running
 
 ```
-cd docker/cuda11.7
+cd docker/cuda
 ./build.sh
 ```
 
