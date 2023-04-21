@@ -50,7 +50,7 @@ while True:
     w, h, ch = img.shape
     img2 = cv2.resize(img, (h//3, w//3))
 
-    name = PARENT_DIR + 'results/frame' + str(c).zfill(6) + ".jpg"
+    name = 'results/frame' + str(c).zfill(6) + ".jpg"
 
     d = {
         "file_path": name,
